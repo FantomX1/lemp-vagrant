@@ -6,6 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
+  
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
@@ -26,6 +27,7 @@ Vagrant.configure("2") do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 80, host: 80
 
+  config.vm.synced_folder "./", "/var/www", create: true, group: "www-data", owner: "www-data"
 
 
   # Create a forwarded port mapping which allows access to a specific port
@@ -48,7 +50,7 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  config.vm.synced_folder = "./", "/var/wwww", create: true, group: "www-data", owner: "www-data"
+  #config.vm.synced_folder = "./", "/var/wwww", create: true, group: "www-data", owner: "www-data"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -75,9 +77,7 @@ Vagrant.configure("2") do |config|
 
 
   config.vm.provision "shell" do |s|
-
     s.path = "bootstrap.sh"
-
   end
-
+  
 end
