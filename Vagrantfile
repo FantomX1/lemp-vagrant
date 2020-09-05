@@ -50,8 +50,6 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  #config.vm.synced_folder = "./", "/var/wwww", create: true, group: "www-data", owner: "www-data"
-   #config.vm.synced_folder "./", "/var/www", create: true, group: "www-data", owner: "www-data"
    config.vm.synced_folder "./", "/var/www", create: true, group: "www-data", owner: "www-data"
 
   # Provider-specific configuration so you can fine-tune various
